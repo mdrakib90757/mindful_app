@@ -20,8 +20,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final List<Widget> _screen = [
     HomeScreen(),
     ReportScreen(),
-    RelaxScreen(),
-    SettingScreen(),
+    MeditationScreen(),
+    SettingsScreen(),
   ];
   void _onItemTapped(int index) {
     setState(() {
