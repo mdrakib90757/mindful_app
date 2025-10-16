@@ -1,4 +1,3 @@
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:mindful_app/core/utils/color.dart';
@@ -142,7 +141,7 @@ class _ReportScreenState extends State<ReportScreen> {
                         'Log Your Mood...',
                         style: TextStyle(
                           color: AppColors.darkGreyText,
-                          fontSize: 18,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -152,7 +151,7 @@ class _ReportScreenState extends State<ReportScreen> {
                         'Fcrewor ont sr pevit veerbat ostroen foot et antrans deolensin labt peicantres.',
                         style: TextStyle(
                           color: AppColors.greyText,
-                          fontSize: 14,
+                          fontSize: 16,
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -181,7 +180,7 @@ class _ReportScreenState extends State<ReportScreen> {
         const SizedBox(width: 8),
         Text(
           text,
-          style: TextStyle(color: AppColors.darkGreyText, fontSize: 14),
+          style: TextStyle(color: AppColors.darkGreyText, fontSize: 16),
         ),
       ],
     );
@@ -209,7 +208,7 @@ class _ReportScreenState extends State<ReportScreen> {
           ],
           isCurved: true,
           color: AppColors.chartColor1,
-          barWidth: 0, // Make the line invisible
+          barWidth: 0,
           isStrokeCapRound: true,
           dotData: FlDotData(show: false),
           belowBarData: BarAreaData(

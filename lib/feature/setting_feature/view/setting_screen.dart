@@ -1,8 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:mindful_app/core/utils/color.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController? _controller;
+  Animation<double>? _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 8),
+    )..repeat(reverse: true);
+    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller!);
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +38,25 @@ class SettingsScreen extends StatelessWidget {
           children: [
             const Icon(Icons.spa, color: AppColors.primaryTeal),
             const SizedBox(width: 8),
-            const Text('Settings',
+            const Text(
+              'Breathing Session',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-              ),),
+              ),
+            ),
           ],
         ),
-       excludeHeaderSemantics: true,
-       backgroundColor: Colors.transparent,
+        excludeHeaderSemantics: true,
+        backgroundColor: Colors.transparent,
       ),
       backgroundColor: AppColors.lightGreyBackground,
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-
             ListView(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -44,10 +72,14 @@ class SettingsScreen extends StatelessWidget {
                         width: 200,
                         height: 200,
                         child: CircularProgressIndicator(
-                          value: 0.7, // Example progress
+                          value: 0.7,
                           strokeWidth: 10,
-                          backgroundColor: AppColors.secondaryTeal.withOpacity(0.3),
-                          valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primaryTeal),
+                          backgroundColor: AppColors.secondaryTeal.withOpacity(
+                            0.3,
+                          ),
+                          valueColor: const AlwaysStoppedAnimation<Color>(
+                            AppColors.primaryTeal,
+                          ),
                         ),
                       ),
                       Column(
@@ -72,6 +104,30 @@ class SettingsScreen extends StatelessWidget {
                         ],
                       ),
                     ],
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Session Mode",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.darkGreyText.withOpacity(0.7),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Guided Practice Seris",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.darkGreyText.withOpacity(0.7),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -117,16 +173,17 @@ class SettingsScreen extends StatelessWidget {
   }) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 25),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.shade300),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 5,
-            offset: const Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -138,8 +195,9 @@ class SettingsScreen extends StatelessWidget {
             child: Text(
               title,
               style: const TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 color: AppColors.darkGreyText,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),

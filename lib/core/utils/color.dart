@@ -16,10 +16,8 @@ class AppColors {
   static const Color smileySad = Color(0xFFF8D7DA);
   static const Color smileyAngry = Color(0xFFE8E8E8);
 
-
   // Chart specific colors
   static const Color chartColor1 = Color(0xFF8ECDF0);
   static const Color chartColor2 = Color(0xFF63B0A9);
   static const Color chartColor3 = Color(0xFFB1A0E3);
-
 }

@@ -207,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildFeatureCard(String title, IconData icon) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(15),

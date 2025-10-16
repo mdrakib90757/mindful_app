@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mindful_app/core/utils/color.dart';
 
-
 class MeditationScreen extends StatelessWidget {
   const MeditationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -19,7 +17,7 @@ class MeditationScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(Icons.spa, color: AppColors.primaryTeal),
-            SizedBox(width: 10,),
+            SizedBox(width: 10),
             const Text(
               "Guide du Méditations",
               style: TextStyle(
@@ -40,14 +38,12 @@ class MeditationScreen extends StatelessWidget {
             // Top Grid Section
             GridView.builder(
               shrinkWrap: true,
-              physics:
-              const NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10.0,
                 //mainAxisSpacing: 10.0,
-                childAspectRatio:
-                screenWidth < 300 ? 0.7 : 0.8,
+                childAspectRatio: screenWidth < 300 ? 0.7 : 0.8,
               ),
               itemCount: 4,
               itemBuilder: (context, index) {
@@ -56,36 +52,37 @@ class MeditationScreen extends StatelessWidget {
                   {
                     'image': 'assets/img/download (1).png',
                     'title': 'Deep Sleep',
-                    'subtitle': 'Daco Sopo'
+                    'subtitle': 'Daco Sopo',
                   },
                   {
                     'image': 'assets/img/download (2).png',
                     'title': 'Stress Boost',
-                    'subtitle': 'Relaxation'
+                    'subtitle': 'Relaxation',
                   },
                   {
                     'image': 'assets/img/download (3).png',
                     'title': 'Heavy Forest',
-                    'subtitle': 'Sons of Gold'
+                    'subtitle': 'Sons of Gold',
                   },
                   {
                     'image': 'assets/img/download (4).png',
                     'title': 'Ocean Waves',
-                    'subtitle': 'Peaceful Waters'
+                    'subtitle': 'Peaceful Waters',
                   },
                 ];
                 final item = gridItems[index];
                 return Column(
                   children: [
-                    Image.asset(
-                      item['image']!,
+                    Image.asset(item['image']!),
+                    SizedBox(height: 8),
+                    Text(
+                      item["title"]!,
+                      style: TextStyle(
+                        color: AppColors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    SizedBox(height: 8,),
-                    Text(item["title"]!,style: TextStyle(
-                      color: AppColors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),)
                   ],
                 );
               },
@@ -109,46 +106,47 @@ class MeditationScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
                 itemBuilder: (context, index) {
-
                   final List<Map<String, String>> horizontalItems = [
                     {
                       'image': 'assets/img/download (5).png',
                       'title': 'Calm Journey',
-                      'subtitle': 'Nature Sounds'
+                      'subtitle': 'Nature Sounds',
                     },
                     {
                       'image': 'assets/img/download (5).png',
                       'title': 'Morning Dew',
-                      'subtitle': 'Forest Ambience'
+                      'subtitle': 'Forest Ambience',
                     },
                     {
                       'image': 'assets/img/download (5).png',
                       'title': 'Gentle Rain',
-                      'subtitle': 'Relaxing Drops'
+                      'subtitle': 'Relaxing Drops',
                     },
                     {
                       'image': 'assets/img/download (5).png',
                       'title': 'Sunset Breeze',
-                      'subtitle': 'Soft Winds'
+                      'subtitle': 'Soft Winds',
                     },
                   ];
                   final item = horizontalItems[index];
                   return Padding(
-                    padding: EdgeInsets.only(right: index == horizontalItems.length - 1 ? 0 : 16.0),
+                    padding: EdgeInsets.only(
+                      right: index == horizontalItems.length - 1 ? 0 : 16.0,
+                    ),
                     child: Column(
                       children: [
-                        Image.asset(
-                          item['image']!,
-                        height: 180,width: 180,),
-                        SizedBox(height: 8,),
-                        Text(item["title"]!,style: TextStyle(
-                          color: AppColors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),)
-
+                        Image.asset(item['image']!, height: 180, width: 180),
+                        SizedBox(height: 8),
+                        Text(
+                          item["title"]!,
+                          style: TextStyle(
+                            color: AppColors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ],
-                    )
+                    ),
                   );
                 },
               ),
